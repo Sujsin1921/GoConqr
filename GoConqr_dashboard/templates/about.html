@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./image/logo.png" type="image/icon">
+    <title>GoConq</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .header {
+            background-color: lightblue;
+            display: flex;
+            height: 547px;
+            width: 100%;
+        }
+        
+        .header>img {
+            border-radius: 50%;
+        }
+        
+        .btn-primary {
+            background: #cf4445;
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary:hover {
+            background: #c70c0d;
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary:active {
+            background: #c70c0d;
+            border: none;
+            outline: none;
+        }
+        
+        section h1 {
+            text-align: center;
+        }
+        
+        .information {
+            text-align: center;
+            position: relative;
+            top: 30%;
+        }
+        
+        .ourdata {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .ourdata {
+            text-align: center;
+        }
+        
+        .database_information {
+            text-align: center;
+        }
+        
+        .database {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .card:hover {
+            filter: drop-shadow(8px 8px 10px gray);
+        }
+        
+        .card>img {
+            height: 59px;
+            width: 64px;
+            position: relative;
+            left: 110px;
+            top: 10px;
+        }
+        /* Responsive  */
+        
+        @media screen and (max-width: 780px) {
+            .header {
+                background-color: lightblue;
+                display: flex;
+                flex-direction: column;
+            }
+            .header>img {
+                border-radius: 50%;
+                height: 30px;
+                width: 50px;
+                position: relative;
+                top: 20px;
+                left: 20%;
+                border-radius: 50%;
+                height: 19rem;
+                width: 24rem;
+            }
+            .information {
+                text-align: center;
+                position: relative;
+                top: 5%;
+            }
+            .ourdata {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding: 20px;
+                justify-content: space-around;
+            }
+            .card {
+                min-width: 100%;
+                padding: 20px;
+            }
+            .card>img {
+                height: 59px;
+                width: 64px;
+                position: relative;
+                left: 18rem;
+                top: 10px;
+            }
+            .database {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding: 20px;
+                justify-content: space-around;
+            }
+        }
+        
+        @media screen and (max-width: 540px) {
+            .header {
+                background-color: lightblue;
+                display: flex;
+                height: 35rem;
+                flex-direction: column;
+            }
+            .header>img {
+                border-radius: 50%;
+                position: relative;
+                top: 20px;
+                left: 20%;
+                border-radius: 50%;
+                height: 19rem;
+                width: 16rem;
+            }
+            .information {
+                text-align: center;
+                position: relative;
+                top: 5%;
+            }
+            .ourdata {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding: 20px;
+                justify-content: space-around;
+            }
+            .card {
+                min-width: 100%;
+                padding: 20px;
+            }
+            .card>img {
+                height: 59px;
+                width: 64px;
+                position: relative;
+                left: 8rem;
+                top: 10px;
+            }
+            .database {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding: 20px;
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Go<b>Conq</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">about US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact</a>
+                    </li>
+
+
+                </ul>
+
+                {% block nav %} {% endblock%}
+                <!-- <button class="float-right btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign Up</button>&nbsp;&nbsp;
+                <button class="flaot-right btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#SignIn"> Sign In</button>
+                <form class="d-flex">
+                <a class="nav-link hover" href="/logout">logout</a>
+                </form> -->
+            </div>
+        </div>
+    </nav>
+    <div class="header">
+        {% load static%}
+        <img src="{% static 'goConqr.jpeg' %}" height="500" width="500" alt="">
+        <div class="information">
+            <h1 style="color: rgb(0, 0, 0);">About us</h1>
+            <p style="color: #0f0f0f;">GoConq is a platform which help you to get information about technologies easy way to access all the technologies You dont need to find the best course every where every course is all been fetch according to technologies decided by you.
+
+            </p>
+            <button href="technologies" class="btn btn-primary">Learn more..</button>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <section id="technologies">
+            <h1>Core technologies</h1>
+            <div class="ourdata">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://static.javatpoint.com/images/homeicon/java.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">JAVA</h3>
+                        <h6 class="card-subtitle mb-2 text-muted">High-level programming language</h6>
+                        <p class="card-text">Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible..</p>
+
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://static.javatpoint.com/images/homeicon/python.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">PYTHON</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">High-level programming language</h6>
+                        <p class="card-text">Python is an interpreted high-level general-purpose programming language. Its design philosophy emphasizes code readability with its use of significant indentation. Its language constructs as well as its object-oriented approach
+                            aim to help programmers write clear, logical code for small and large-scale projects</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://static.javatpoint.com/images/homeicon/react.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">REACT</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Frontend language</h6>
+                        <p class="card-text">React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <br><br>
+        <section class="database_information">
+            <h1>Database technologies We have </h1>
+            <div class="database">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://static.javatpoint.com/images/homeicon/mongodb.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">MONGODB</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Backend language</h6>
+                        <p class="card-text">MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. </p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://static.javatpoint.com/images/homeicon/sql.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">SQL</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Backend language</h6>
+                        <p class="card-text">SQL is a domain-specific language used in programming and designed for managing data held in a relational database management system, or for stream processing in a relational data stream management system. </p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://static.javatpoint.com/images/homeicon/pl-sql.png" class="card-img-top" height='30' width='10' alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">PL/SQL</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Backend language</h6>
+                        <p class="card-text">PL/SQL is a procedural language designed specifically to embrace SQL statements within its syntax. PL/SQL program units are compiled by the Oracle Database server and stored inside the database. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

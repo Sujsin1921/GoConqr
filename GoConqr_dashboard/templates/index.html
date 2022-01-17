@@ -1,0 +1,294 @@
+{% extends 'basic.html' %} {% block Title%} Go Conqr {% endblock%} {% block nav%}
+<button class="float-right btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign Up</button>&nbsp;&nbsp;
+<button class="flaot-right btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#SignIn"> Sign In</button> {% endblock%} {% block body %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message :</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<!-- sign Up model -->
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form action="/profill" method='POST'>
+                {% csrf_token %}
+                <div class="modal-body">
+
+
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fa fa-user icon"></i>&nbsp;&nbsp;Name</label>
+                        <input class="form-control" type="text" placeholder="Username" name="username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Email" class="form-label"><i class="fa fa-envelope icon"></i>&nbsp;&nbsp;Email</label>
+                        <input class="form-control" type="text" placeholder="Email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Password" class="form-label"><i class="fa fa-key icon"></i>&nbsp;&nbsp;Password</label>
+                        <input class="form-control" type="password" placeholder="Password" name="password" id="password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Password" class="form-label"><i class="fa fa-key icon"></i>&nbsp;&nbsp;Password</label>
+                        <input class="form-control" type="password" placeholder="Confirm Password" name="password" id="confirm_password" required>
+                        <span id="message"></span>
+                    </div><br>
+                    <b style="font-size: large;"><h5>Fill Profill details</h5> </b><br>
+                    <div class="mb-3">
+                        <label for="IT" class="form-label"><h5>Are you from IT background?</h5></label><br>
+                        <input type="radio" name='IT' value="IT" required>
+                        <label class="form-lable">Yes</label><br>
+                        <input type="radio" name='IT' value="NON-IT">
+                        <label class="form-lable">No</label><br><br>
+                    </div>
+                    <div class="mb-3">
+                        <label for="level" class="form-label"><h5>Select your level of knowledge:</h5></label><br>
+                        <input type="radio" name='level' value="beginner" required>
+                        <label class="form-lable">Beginner</label><br>
+                        <input type="radio" name='level' value="intermediate">
+                        <label class="form-lable">Intermediate</label><br>
+                        <input type="radio" name='level' value="advance">
+                        <label class="form-lable">Advance</label><br><br>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label"><h5>What do you want top be:</h5></label><br>
+                        <input type="radio" name='category' value="fronted" required>
+                        <label class="form-lable">Fronted Developer</label><br>
+                        <input type="radio" name='category' value="backend">
+                        <label class="form-lable">Backend Developer</label><br>
+                        <input type="radio" name='category' value="fullstack">
+                        <label class="form-lable">FullStack Developer</label><br>
+                    </div>
+                    <div class="mb-3">
+                        <label for="language" class="form-label"><h5> Core Language</h5></label><br>
+                        <input type="radio" name="language" value="combo" required>
+                        <label class="form-label">Python and Java</label>&emsp;&emsp;&emsp;&emsp;
+                        <input type="radio" name="language" value="java">
+                        <label class="form-label">java</label><br>
+                        <input type="radio" name="language" value="php">
+                        <label class="form-label">PHP</label>
+                        <input type="radio" name="language" value="python">
+                        <label class="form-label">Python</label><br><br>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fronted" class="form-label"><h5>Fronted</h5></label><br>
+                        <input type="radio" name='front' value='React'>
+                        <label for="" class="form-label">React</label>&emsp;&emsp;&emsp;&emsp;
+                        <input type="radio" name='front' value='core_html_combo'>
+                        <label for="" class="form-label">HTML, CSS and JavaScript</label>&emsp;&emsp;&emsp;&emsp;
+                    </div>
+                    <div class="mb-3">
+                        <label for="Technology" class="form-label"><h5>Which Technology you prefered:</h5></label><br>
+                        <input type="radio" name="Technology" value="django" required>
+                        <label class="form-label">Django</label><br>
+                        <input type="radio" name="Technology" value="flask">
+                        <label class="form-label">Flask</label><br>
+                        <input type="radio" name="Technology" value="spring boot">
+                        <label class="form-label">Spring Boot</label><br>
+                        <input type="radio" name="Technology" value="hibernet">
+                        <label class="form-label">Hibernet</label><br><br>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <input type="submit" name="submit" class="btn btn-primary">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Sign In  -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="SignIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign In </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="login" method='POST'>
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="input-container">
+                        <label class="form-label"><i class="fa fa-user icon"></i>&nbsp;&nbsp;Name</label>
+                        <input class="form-control" type="text" placeholder="Username" name="username">
+                    </div>
+                    <div class="input-container">
+                        <label for="Password" class="form-label"><i class="fa fa-key icon"></i>&nbsp;&nbsp;Password</label>
+                        <input class="form-control" type="password" placeholder="Password" name="password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" name="submit" class="btn btn-success">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="header">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    {% load static%}
+                    <img src="{% static 'funny_bunny.jpg' %}" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Take The First step with GoConqr </h3>
+                        <p>
+                            <h4>The Litte steps that matters to improve your knowledge.</h4>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    {% load static%}
+                    <img src="{% static 'start.jpg' %}" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Start You Journey </h3>
+                        <p>
+                            <h5>Enjoy the journey and try to get better every day.</h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    {% load static%}
+                    <img src="{% static 'workspace.jpg' %}" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Build The Future</h3>
+                        <p>
+                            <h4>Today is Your Opportunity To Build Tomorrow You Want</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <br><br>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Core</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Technology</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Database</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="cource-container container">
+                    <div class="row">
+                        <h4>PYTHON</h4>
+                        {% for i in core %}
+                        <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                            <div class="lin">
+                                {{i.link}}
+                            </div>
+                            <div class="card-body ">
+                                <strong>{{ i.title }}</strong><br><br>
+                                <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                <p class="card-text ">{{ i.description}}</p>
+                            </div>
+                        </div>
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="cource-container container">
+                        <div class="row">
+                            <h4>Django</h4>
+                            {% for i in tech %}
+                            <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                                <div class="lin">
+                                    {{i.link}}
+                                </div>
+                                <div class="card-body ">
+                                    <strong>{{ i.title }}</strong><br><br>
+                                    <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                    <p class="card-text ">{{ i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="cource-container container">
+                        <div class="row">
+                            <h4>SQL</h4>
+                            {% for i in datab %}
+                            <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                                <div class="lin">
+                                    {{i.link}}
+                                </div>
+                                <div class="card-body ">
+                                    <strong>{{ i.title }}</strong><br><br>
+                                    <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                    <p class="card-text ">{{ i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('.lin').each(function() {
+        var $this = $(this);
+        var t = $this.text();
+        $this.html(t.replace('&lt', '<').replace('&gt', '>'));
+    });
+
+    $('#password, #confirm_password').on('keyup', function() {
+        if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else
+            $('#message').html('Not Matching').css('color', 'red');
+    });
+</script>
+
+{% endblock%}

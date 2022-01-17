@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block Title%} {% endblock %}
+    </title>
+    <!--fas fa fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% block style %} {% endblock %}
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- JQUARY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" />
+    <style>
+        .container {
+            padding-top: 5px;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .alert-error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .float-right {
+            display: inline;
+            float: right;
+        }
+        
+        .marks {
+            font-size: 28px;
+            font-weight: bolder;
+            display: inline;
+            line-height: 36px;
+            font-family: 'New Tegomin', serif;
+        }
+        
+        .balsheet {
+            padding: 5px 5px;
+        }
+        
+        .colow {
+            color: white;
+        }
+        
+        .hover:hover {
+            font-size: 16px;
+            color: antiquewhite;
+        }
+        
+        .outer-container {
+            display: flex;
+            top: 0;
+            width: 100%;
+            min-height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cource-container {
+            padding: 25px 10px;
+        }
+        
+        .form {
+            width: 400px;
+            text-align: left;
+            margin: auto;
+            font-size: 24px;
+        }
+        
+        .nav-link {
+            color: black;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .card-img-top {
+            padding: 8px 0px;
+            height: 25vh;
+        }
+        
+        .img {
+            max-height: 60vh;
+        }
+        /* Footer CSS */
+        
+        ooter {
+            background-color: #26272b;
+        }
+        
+        .site-footer {
+            background-color: #26272b;
+            padding: 45px 0 20px;
+            font-size: 15px;
+            line-height: 24px;
+            color: #737373;
+        }
+        
+        .site-footer hr {
+            border-top-color: #bbb;
+            opacity: 0.5
+        }
+        
+        .site-footer hr.small {
+            margin: 20px 0
+        }
+        
+        .site-footer h6 {
+            color: #26272b;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 2px
+        }
+        
+        .site-footer a {
+            color: #737373;
+        }
+        
+        .site-footer a:hover {
+            color: #3366cc;
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            padding-left: 0;
+            list-style: none
+        }
+        
+        .footer-links li {
+            display: block
+        }
+        
+        .footer-links a {
+            color: #737373
+        }
+        
+        .footer-links a:active,
+        .footer-links a:focus,
+        .footer-links a:hover {
+            color: #3366cc;
+            text-decoration: none;
+        }
+        
+        .footer-links.inline li {
+            display: inline-block
+        }
+        
+        .site-footer .social-icons {
+            text-align: right
+        }
+        
+        .site-footer .social-icons a {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 6px;
+            margin-right: 0;
+            border-radius: 100%;
+            background-color: #33353d
+        }
+        
+        .copyright-text {
+            margin: 0
+        }
+        
+        @media (max-width:991px) {
+            .site-footer [class^=col-] {
+                margin-bottom: 30px
+            }
+        }
+        
+        @media (max-width:767px) {
+            .site-footer {
+                padding-bottom: 0
+            }
+            .site-footer .copyright-text,
+            .site-footer .social-icons {
+                text-align: center
+            }
+        }
+        
+        .social-icons {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none
+        }
+        
+        .social-icons li {
+            display: inline-block;
+            margin-bottom: 4px
+        }
+        
+        .social-icons li.title {
+            margin-right: 15px;
+            text-transform: uppercase;
+            color: #96a2b2;
+            font-weight: 700;
+            font-size: 13px
+        }
+        
+        .social-icons a {
+            background-color: #eceeef;
+            color: #818a91;
+            font-size: 16px;
+            display: inline-block;
+            line-height: 44px;
+            width: 44px;
+            height: 44px;
+            text-align: center;
+            margin-right: 8px;
+            border-radius: 100%;
+            -webkit-transition: all .2s linear;
+            -o-transition: all .2s linear;
+            transition: all .2s linear
+        }
+        
+        .social-icons a:active,
+        .social-icons a:focus,
+        .social-icons a:hover {
+            color: #fff;
+            background-color: #29aafe
+        }
+        
+        .social-icons.size-sm a {
+            line-height: 34px;
+            height: 34px;
+            width: 34px;
+            font-size: 14px
+        }
+        
+        .fa {
+            display: inline-block;
+            background: transparent;
+        }
+        
+        .social-icons a.facebook:hover {
+            background-color: #3b5998
+        }
+        
+        .social-icons a.twitter:hover {
+            background-color: #00aced
+        }
+        
+        .social-icons a.linkedin:hover {
+            background-color: #007bb6
+        }
+        
+        .social-icons a.dribbble:hover {
+            background-color: #ea4c89
+        }
+        
+        @media (max-width:767px) {
+            .social-icons li.title {
+                display: block;
+                margin-right: 0;
+                font-weight: 600
+            }
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Go<b>Conq</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">about US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact</a>
+                    </li>
+
+
+                </ul>
+
+                {% block nav %} {% endblock%}
+                <!-- <button class="float-right btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign Up</button>&nbsp;&nbsp;
+                <button class="flaot-right btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#SignIn"> Sign In</button>
+                <form class="d-flex">
+                <a class="nav-link hover" href="/logout">logout</a>
+                </form> -->
+            </div>
+        </div>
+    </nav>
+    {% block body %} {% endblock %}
+    <footer class="site-footer">
+        <div class="container bg-light">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify"><i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts
+                        in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="">Hibernate</a></li>
+                        <li><a href="">Javascript</a></li>
+                        <li><a href="">PHP</a></li>
+                        <li><a href="">Java</a></li>
+                        <li><a href="">Android</a></li>
+                        <li><a href="">Springboot</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container bg-light">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                        <a href="./index.html">GoConq</a>.
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script> -->
+
+
+</body>
+
+</html>

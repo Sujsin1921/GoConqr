@@ -1,0 +1,184 @@
+{% extends 'basic.html' %} {% block Title %} User Profill{% endblock%} {% block nav%}
+<form class="d-flex">
+
+    <a class=' nav-link hover' style="color: white;">{{ username}}</a>
+    <a class="nav-link hover" href="/logout" style="color: white;">logout</a>
+</form>
+
+
+{% endblock%} {% block body %}
+
+<div class="container">
+    <div class="header">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    {% load static%}
+                    <img src="{% static 'funny_bunny.jpg' %}" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Take The First step with GoConqr </h3>
+                        <p>
+                            <h4>The Litte steps that matters to improve your knowledge.</h4>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    {% load static%}
+                    <img src="{% static 'start.jpg' %}" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Start You Journey </h3>
+                        <p>
+                            <h5>Enjoy the journey and try to get better every day.</h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    {% load static%}
+                    <img src="{% static 'workspace.jpg' %}" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Build The Future</h3>
+                        <p>
+                            <h4>Today is Your Opportunity To Build Tomorrow You Want</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <br><br>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Core</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Technology</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Database</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="cource-container container">
+                    <div class="row">
+                        <h4>Our suggestions To Start with</h4>
+                        {% for i in core %}
+                        <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                            <div class="lin">
+                                {{i.link}}
+                            </div>
+                            <div class="card-body ">
+                                <strong>{{ i.title }}</strong><br><br>
+                                <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                <p class="card-text ">{{ i.description}}</p>
+                            </div>
+                        </div>
+                        {% endfor%}
+                    </div>
+                    <div class="row">
+                        <h4>Other To Watch out for</h4>
+                        {% for i in coreall %}
+                        <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                            <div class="lin">
+                                {{i.link}}
+                            </div>
+                            <div class="card-body ">
+                                <strong>{{ i.title }}</strong><br><br>
+                                <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                <p class="card-text ">{{ i.description}}</p>
+                            </div>
+                        </div>
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="cource-container container">
+                        <div class="row">
+                            <h4>Our suggestions To Start with</h4>
+                            {% for i in tech %}
+                            <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                                <div class="lin">
+                                    {{i.link}}
+                                </div>
+                                <div class="card-body ">
+                                    <strong>{{ i.title }}</strong><br><br>
+                                    <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                    <p class="card-text ">{{ i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor%}
+                        </div>
+                        <div class="row">
+                            <h4>Other to watchout for</h4>
+                            {% for i in techall %}
+                            <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                                <div class="lin">
+                                    {{i.link}}
+                                </div>
+                                <div class="card-body ">
+                                    <strong>{{ i.title }}</strong><br><br>
+                                    <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                    <p class="card-text ">{{ i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="cource-container container">
+                        <div class="row">
+                            <h4>SQL</h4>
+                            {% for i in datab %}
+                            <div class="card col-lg-4 col-md-6 col-xs-12" id={{i.id}} style="width: 23rem; ">
+                                <div class="lin">
+                                    {{i.link}}
+                                </div>
+                                <div class="card-body ">
+                                    <strong>{{ i.title }}</strong><br><br>
+                                    <strong>Docs link: <a href='{{ i.doc_link }}' target="_blank">{{ i.doc_link}}</a></strong><br><br>
+                                    <p class="card-text ">{{ i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('.lin').each(function() {
+        var $this = $(this);
+        var t = $this.text();
+        $this.html(t.replace('&lt', '<').replace('&gt', '>'));
+    });
+</script>
+{% endblock%}

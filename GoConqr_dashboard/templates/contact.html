@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}{% block Title%} Go Conqr {% endblock%} {% block style %}
+<link rel="stylesheet" href="../static/style.css"> {% endblock %} {% block nav%}
+<button class="float-right btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign Up</button>&nbsp;&nbsp;
+<button class="flaot-right btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#SignIn"> Sign In</button> {% endblock%} {% block body %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message :</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<h1 id="contact">Contact GoConq </h1>
+
+<p>We're here to help and answer any question you might have we look forword to hearirng for you </p>
+<div class="contact_details">
+
+    <form action="">
+
+        <label for="">Name[required]</label><br>
+
+        <input type="text" name="" id="h" placeholder="suresh" required><br>
+
+        <label for="">Last[required] </label><br>
+
+        <input type="text" name="" id="" placeholder="tiwari" required><br> <label for="">Email</label><br>
+        <input type="email" placeholder="abc@gmail.com" name="" id="" required><br>
+
+        <label for="">Message</label><br>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Type your query here!!!"></textarea><br>
+        <button class='button' style="color: white">Submit</button>
+
+    </form>
+    <div class="text_area">
+        <p>
+            <b>India:</b>
+            <span>+91 7383849217</span>
+        </p>
+        <p>
+            <b>France:</b>
+            <span>+91 7383849217</span>
+        </p>
+
+        <p><b>Spain: </b>: <span>+91 7383849217</span></p>
+        <p><b>Uk:</b> <span>491 7383849217</span> </p>
+
+        <p style="text-align: center;"><b>Email:</b><span class="Email_heading">namishra@gmail.com|support@goconq.com</span> </p>
+
+    </div>
+
+</div>
+
+<br> {% endblock%}
