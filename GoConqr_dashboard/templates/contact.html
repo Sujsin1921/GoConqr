@@ -1,7 +1,10 @@
 {% extends 'basic.html' %}{% block Title%} Go Conqr {% endblock%} {% block style %}
 <link rel="stylesheet" href="../static/style.css"> {% endblock %} {% block nav%}
-<button class="float-right btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sign Up</button>&nbsp;&nbsp;
-<button class="flaot-right btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#SignIn"> Sign In</button> {% endblock%} {% block body %} {% for message in messages %}
+<li class="nav-item">
+    <a class="nav-link" href="feedback">feedback</a>
+</li>
+</ul>
+{% endblock%} {% block body %} {% for message in messages %}
 <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
     <strong>Message :</strong> {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -14,11 +17,11 @@
 
     <form action="">
 
-        <label for="">Name[required]</label><br>
+        <label for="">Name</label><br>
 
         <input type="text" name="" id="h" placeholder="suresh" required><br>
 
-        <label for="">Last[required] </label><br>
+        <label for="">Last </label><br>
 
         <input type="text" name="" id="" placeholder="tiwari" required><br> <label for="">Email</label><br>
         <input type="email" placeholder="abc@gmail.com" name="" id="" required><br>

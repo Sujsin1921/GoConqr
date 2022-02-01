@@ -10,5 +10,6 @@ path('dashboard',views.dashboard,name='dashboard'),
 path('logout',views.logout,name='logout'),
 path('profill',views.profill,name='profill'),
 path('contact',views.contact,name='contact'),
-path('about',views.about,name='about')
+path('about',views.about,name='about'),
+path('feedback',views.feedback,name='feedback')
 ]

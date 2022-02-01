@@ -30,3 +30,13 @@ class userprofill(models.Model):
     def __str__(self):
         return self.category
 
+class feedback_a(models.Model):
+    user = models.CharField(max_length=60)
+    rate = models.CharField(max_length=20)
+    like = models.CharField(max_length=100)
+    dislike = models.CharField(max_length=100)
+    suggest = models.CharField(max_length=300)
+    imporve = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.rate

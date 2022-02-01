@@ -1,0 +1,48 @@
+{% extends 'basic.html' %} {% block Title %}FeedBack{% endblock%} {% block nav%}
+<li class="nav-item">
+    <a class="nav-link" href="feedback">feedback</a>
+</li>
+</ul>
+<form class="d-flex">
+
+    <a class=' nav-link hover' style="color: white;">{{ username}}</a>
+    <a class="nav-link hover" href="/logout" style="color: white;">logout</a>
+</form>
+{% endblock%} {% block body %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message :</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>{% endfor %}
+<div class="container">
+    <h1 style='text-align: center;    font-family: "Orelega One", cursive;'>FeedBack</h1>
+    <div class="row justify-content-center">
+
+        <form method="post" class='col-md-8' action='feedback'>
+            {% csrf_token %}
+            <input type='text' name='user' value='{{ username}}' hidden>
+            <label for="need" class="form-label">How would you rate our application?</label><br>
+            <input type='radio' name='rate' value=5>
+            <p style="font-size: x-large; display: inline;">&#128525;</p>&emsp;&emsp;&emsp;
+            <input type='radio' name='rate' value=4>
+            <p style="font-size: x-large; display: inline;">&#128526;</p>&emsp;&emsp;&emsp;
+            <input type='radio' name='rate' value=3>
+            <p style="font-size: x-large; display: inline;">&#128516;</p>&emsp;&emsp;&emsp;
+            <input type='radio' name='rate' value=2>
+            <p style="font-size: x-large; display: inline;">&#128543;</p>&emsp;&emsp;&emsp;
+            <input type='radio' name='rate' value=1>
+            <p style="font-size: x-large; display: inline;">&#128534;</p>
+
+            <br><br>
+            <label for="" class="form-label">What you like most in our application?</label>
+            <input type="text" name="like" class='form-control'><br>
+            <label for="" class="form-label">Where we need to improve provide the area?</label>
+            <textarea name="improve" id="" cols="30" rows="3" class='form-control'></textarea><br>
+            <label for="" class="form-label">What you not like about in our application?</label>
+            <input type="text" class='form-control' name="dislike"><br>
+            <label for="" class="form-label">Suggestions</label>
+            <textarea name="suggest" id="" cols="30" rows="3" class='form-control'></textarea><br>
+            <input type="submit" class="form-control btn-success"><br><br>
+    </div>
+</div>
+
+{% endblock %}

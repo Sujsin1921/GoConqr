@@ -9,9 +9,13 @@ from django.db.models import Q
 # inmporting All Models
 from .models import course
 from .models import userprofill
+from .models import feedback_a
 
 # Create your views here.
 def index(request):
+    if 'bar' in request.session:
+        user = request.session['bar']
+        return redirect('/dashboard')
     core = course.objects.filter(category ='backend')
     cou1 = course.objects.get(id=1)
     tech = course.objects.filter(category = 'framework')
@@ -87,3 +91,20 @@ def contact(request):
 
 def about(request):
     return render(request,'about.html')
+
+def feedback(request):
+    if 'bar' in request.session:
+        user = request.session['bar']
+        params ={'username':user}
+        if request.method == "POST":
+            fuser = request.POST['user']
+            frate = request.POST['rate']
+            flike = request.POST['like']
+            fdislike = request.POST['dislike']
+            fsuggest = request.POST['suggest']
+            fimprove = request.POST['improve']
+            feedback_a.objects.create(user = fuser,rate = int(frate), like = flike,dislike = fdislike, suggest = fsuggest,imporve = fimprove)
+            messages.warning(request,'Feedback submited successfully')
+            return redirect('/feedback')
+        return render(request,'feedback.html',params)
+    return redirect('/')
